@@ -1,0 +1,229 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background + layout */
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: radial-gradient(circle at top left,
+                                #ff9a9e 0,
+                                #fad0c4 30%,
+                                #a18cd1 70%,
+                                #4a6cf7 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+}
+
+/* Layout wrapper */
+.page-wrapper {
+    width: 100%;
+    max-width: 900px;
+    min-height: 420px;
+    display: grid;
+    grid-template-columns: minmax(260px, 1.2fr) minmax(320px, 1fr);
+    gap: 18px;
+    padding: 18px;
+}
+
+/* Left brand panel */
+.brand-panel {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    padding: 22px 26px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.20);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-logo-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+.brand-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.brand-subtitle {
+    font-size: 13px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Right panel */
+.form-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card */
+.card {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 18px 20px;
+    border-radius: 18px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+    width: 100%;
+    max-width: 360px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(8px);}
+    to   {opacity: 1; transform: translateY(0);}
+}
+
+/* Headings */
+.card h2 {
+    text-align: center;
+    margin-bottom: 6px;
+    color: #303040;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.card small {
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+    color: #777;
+    font-size: 11px;
+}
+
+/* Labels + inputs */
+label {
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    color: #555;
+    font-size: 13px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #ccd1dd;
+    outline: none;
+    margin-bottom: 4px;
+    font-size: 13px;
+    transition: 0.2s;
+    background: #fdfdff;
+}
+
+input:focus {
+    border-color: #4a6cf7;
+    box-shadow: 0 0 4px #4a6cf766;
+}
+
+/* Main buttons */
+button {
+    width: 100%;
+    padding: 9px;
+    background: linear-gradient(135deg, #4a6cf7, #6f86ff);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(74,108,247,0.45);
+}
+
+/* Link text */
+.switch-link {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.switch-link a {
+    color: #4a6cf7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+}
+
+/* CAPTCHA */
+.captcha-row img {
+    width: 130px;
+    height: 130px;
+    margin: 4px auto;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+
+.refresh-btn {
+    margin-top: 4px;
+    background: #ffb74d;
+    color: #222;
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 11px;
+    border: none;
+}
+
+.refresh-btn:hover {
+    background: #ffa726;
+}
+
+/* Logout button on dashboard */
+.btn-logout {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.btn-logout:hover {
+    background: #c0392b;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .page-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+    .brand-panel {
+        margin-bottom: 10px;
+    }
+}
