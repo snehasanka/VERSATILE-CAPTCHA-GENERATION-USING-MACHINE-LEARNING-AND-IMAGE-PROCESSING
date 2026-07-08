@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Create Account</h2>
+    <small>Sign up to access the secure CAPTCHA-protected system.</small>
+
+    <form method="post">
+
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>Confirm Password</label>
+        <input type="password" name="confirm" required>
+
+        <label>CAPTCHA: Count objects</label>
+        <div class="captcha-row">
+            <img id="captcha-img" src="{{ url_for('captcha_image') }}" alt="CAPTCHA">
+            <button type="button" class="refresh-btn" onclick="refreshCaptcha()">Refresh</button>
+        </div>
+
+        <input type="text" name="captcha" placeholder="Enter number" required>
+
+        <button type="submit">Register</button>
+
+        <p class="switch-link">
+            Already registered? <a href="{{ url_for('login') }}">Login</a>
+        </p>
+
+    </form>
+</div>
+
+<script>
+function refreshCaptcha() {
+    document.getElementById("captcha-img").src =
+        "{{ url_for('captcha_image') }}?" + new Date().getTime();
+}
+</script>
+{% endblock %}

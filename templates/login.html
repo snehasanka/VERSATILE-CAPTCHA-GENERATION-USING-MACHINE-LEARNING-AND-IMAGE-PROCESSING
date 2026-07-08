@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Login</h2>
+    <small>Enter your email, password and CAPTCHA.</small>
+
+    <form method="post">
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>CAPTCHA: Count objects</label>
+        <div class="captcha-row">
+            <img id="captcha-img" src="{{ url_for('captcha_image') }}" alt="CAPTCHA">
+            <button type="button" class="refresh-btn" onclick="refreshCaptcha()">Refresh</button>
+        </div>
+
+        <input type="text" name="captcha" placeholder="Enter number" required>
+
+        <button type="submit">Login</button>
+
+        <p class="switch-link">
+            Don’t have an account?
+            <a href="{{ url_for('register') }}">Register</a>
+        </p>
+
+    </form>
+</div>
+
+<script>
+function refreshCaptcha() {
+    document.getElementById("captcha-img").src =
+        "{{ url_for('captcha_image') }}?" + new Date().getTime();
+}
+</script>
+{% endblock %}

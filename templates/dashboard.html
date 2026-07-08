@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Welcome!</h2>
+
+    <p style="text-align:center; font-size:18px;">
+        Hello <strong>{{ username }}</strong> 👋
+    </p>
+
+    <p style="text-align:center; margin-top:10px;">
+        You have successfully logged in using the secure CAPTCHA system.
+    </p>
+
+    <div style="text-align:center; margin-top:20px;">
+        <a href="{{ url_for('logout') }}" class="btn-logout">Logout</a>
+    </div>
+</div>
+{% endblock %}

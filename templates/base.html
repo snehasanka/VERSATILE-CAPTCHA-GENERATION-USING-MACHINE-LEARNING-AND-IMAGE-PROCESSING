@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Versatile CAPTCHA Login System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="brand-panel">
+            <div class="brand-logo-circle">VC</div>
+            <h1 class="brand-title">Versatile CAPTCHA</h1>
+            <p class="brand-subtitle">
+                Secure registration & login<br>
+                with CNN-based object-count CAPTCHA.
+            </p>
+        </div>
+
+        <div class="form-panel">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <script>
+          window.onload = function() {
+            {% for category, msg in messages %}
+              alert("{{ msg }}");
+            {% endfor %}
+          };
+        </script>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
